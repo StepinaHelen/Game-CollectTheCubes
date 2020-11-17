@@ -5,6 +5,21 @@ const totalPointsRef = document.querySelector("#total")
 let sum = 0;
 
 // createCube();
+// function getOffsetSum(elem) {
+
+//     var top=0, left=0
+//     while(elem) {
+//         top = top + parseFloat(elem.offsetTop)
+//         left = left + parseFloat(elem.offsetLeft)
+//         elem = elem.offsetParent       
+//     }
+//     return {top: Math.round(top), left: Math.round(left)}
+// }
+// getOffsetSum(fildForGameRef)
+
+
+// console.log(getOffsetSum(fildForGameRef))
+ 
 
 function createCube() {
     const amount = (Math.random() * (2))
@@ -15,7 +30,7 @@ function createCube() {
     cube.style.height = "40px"
         cube.style.position = "absolute"
        
-        
+       
     // делаем рандомный цвет
     const colors = ["orange", "pink", "green", "red", "blue", "black", "yellow", "navy", "LawnGreen", "DeepPink",
     "MediumSpringGreen", "OrangeRed", "Fuchsia", "NavajoWhite", "Maroon", "Lime"]
@@ -25,18 +40,43 @@ function createCube() {
     const color = colors[index];
         cube.style.backgroundColor = `${color}`;
     
-    // случайное положениe по Y 
-    const height = (Math.random() * (650 - 200) + 200)
+function getOffsetSum(elem) {
+    
+    let top = 0, left = 0;
+    while(elem) {
+        top = top + parseFloat(elem.offsetTop)
+        left = left + parseFloat(elem.offsetLeft)
+
+        elem = elem.offsetParent   
+         // случайное положениe по Y 
+    // const height = (Math.random() * (650 - top) + top)
+        const height = (Math.random() * (630 - top) + top)
         cube.style.top = `${height}px`;
 
     // случайное положениe по X
-    const width = (Math.random() * (900 - 210) + 210)
+    const width = (Math.random() * (950 - left) + left)
     cube.style.left = `${width}px`;
+    }
+    console.log(cube.style.top)
+    console.log(fildForGameRef.getAttribute("width"))
+    // return {height: Math.round(height), left: Math.round(left)}
+}
+getOffsetSum(fildForGameRef)
+
+
+        
+    // // случайное положениe по Y 
+    // const height = (Math.random() * (650 - 200) + 200)
+    //     cube.style.top = `${height}px`;
+
+    // // случайное положениe по X
+    // const width = (Math.random() * (900 - 210) + 210)
+    // cube.style.left = `${width}px`;
         
     // Добавляем в DOM   
     fildForGameRef.append(cube)
     // /При клике мышкой кубик исчезает 
-     
+      
         cube.addEventListener("click", event =>
         {
             cube.remove();
