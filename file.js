@@ -131,7 +131,7 @@ timerInput.textContent = `${Math.trunc(minutes)}:${seconds}`
         buttonRun.removeEventListener('click', time)
         timerInput.textContent = '0:0'
         modal.style.display = "block";
-        buttonRun.textContent = "START";
+        // buttonRun.textContent = "START";
         // buttonRun.setAttribute("disabled", "disabled") 
         // Выводит сообщение что время закончилось
         // alert("Время закончилось");
