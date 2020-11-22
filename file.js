@@ -118,7 +118,7 @@ buttonRun.addEventListener('click', time)
 
 
 function time() {
-    buttonRun.textContent = "PAUSED";
+    // buttonRun.textContent = "PAUSED";
      if (timeMinut > 0){
 timer = setInterval(function () {
   let    seconds =Number(timeMinut%60) // Получаем секунды
